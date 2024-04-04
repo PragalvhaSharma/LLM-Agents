@@ -54,7 +54,6 @@ sqlAgent = create_sql_agent(
 search = SerpAPIWrapper()
 
 # Define a tool function for the SQLAgent
-
 @tool()
 def SQLAgentTool(query: str) -> str:
     """Executes SQL queries or questions about the company itself using the SQLAgent. If you identify the question from the user to be a SQL query, pass the user input directly to the agent. Pass the relevant table name to getTableINFOforSQL to get information about the table prior to running the SQL query .
@@ -78,7 +77,7 @@ def searchTool(query: str) -> str:
     """Performs web searches for current events or information outside the LLM's scope of information."""
     return search.run(query)
 
-##Placed incase for agent
+##Placed incase for agent. SQL AGENT automatically invokes this. 
 @tool()
 def getTableINFOforSQL(tableName: str) -> str:
     """Called for every SQL query. Provides information about a given table from the database. It is used whenever the user asks question regarding the sql database"""
